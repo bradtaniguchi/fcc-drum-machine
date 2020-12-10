@@ -1,27 +1,29 @@
 # FccDrumMachine
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+Project created for [freeCodeCamp](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine) front-end libraries cert.
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**User Story #1**: I should be able to see an outer container with a corresponding id="drum-machine" that contains all other elements.
 
-## Code scaffolding
+**User Story #2**: Within #drum-machine I can see an element with a corresponding id="display".
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**User Story #3**: Within #drum-machine I can see 9 clickable drum pad elements, each with a class name of drum-pad, a unique id that describes the audio clip the drum pad will be set up to trigger, and an inner text that corresponds to one of the following keys on the keyboard: Q, W, E, A, S, D, Z, X, C. The drum pads MUST be in this order.
 
-## Build
+**User Story #4**: Within each .drum-pad, there should be an HTML5 audio element which has a src attribute pointing to an audio clip, a class name of clip, and an id corresponding to the inner text of its parent .drum-pad (e.g. id="Q", id="W", id="E" etc.).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**User Story #5**: When I click on a .drum-pad element, the audio clip contained in its child audio element should be triggered.
 
-## Running unit tests
+**User Story #6**: When I press the trigger key associated with each .drum-pad, the audio clip contained in its child audio element should be triggered (e.g. pressing the Q key should trigger the drum pad which contains the string "Q", pressing the W key should trigger the drum pad which contains the string "W", etc.).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**User Story #7**: When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique).
 
-## Running end-to-end tests
+**Potential Extra Requirements**
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [ ] upload custom sounds
+- [ ] dark mode
+- [ ] save custom sounds to local browser
+- [ ] volume
+- [ ] expandable keys
+- [ ] drag and drop re-order
+- [ ] record and save
