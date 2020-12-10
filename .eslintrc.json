@@ -74,11 +74,11 @@
          */
         "@angular-eslint/directive-selector": [
           "error",
-          { "type": "attribute", "prefix": "app", "style": "camelCase" }
+          { "type": "attribute", "prefix": "dm", "style": "camelCase" }
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "app", "style": "kebab-case" }
+          { "type": "element", "prefix": "dm", "style": "kebab-case" }
         ]
       }
     },
