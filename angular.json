@@ -10,7 +10,8 @@
           "inlineTemplate": true,
           "inlineStyle": true,
           "style": "scss",
-          "skipTests": true
+          "skipTests": true,
+          "changeDetection": "OnPush"
         },
         "@schematics/angular:class": {
           "skipTests": true
@@ -54,9 +55,7 @@
               "projects/client/src/favicon.ico",
               "projects/client/src/assets"
             ],
-            "styles": [
-              "projects/client/src/styles.scss"
-            ],
+            "styles": ["projects/client/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -105,9 +104,19 @@
           "options": {
             "browserTarget": "client:build"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/client/**/*.ts",
+              "projects/client/**/*.html"
+            ]
+          }
         }
       }
-    }},
+    }
+  },
   "cli": {
     "analytics": "dfffbd0d-4cd5-44fa-bfc5-b14343ee3752"
   },
