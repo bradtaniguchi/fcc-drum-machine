@@ -112,6 +112,19 @@
               "projects/client/**/*.html"
             ]
           }
+        },
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "projects/client-e2e/cypress.json",
+            "tsConfig": "projects/client-e2e/tsconfig.e2e.json",
+            "devServerTarget": "client:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "client:serve"
+            }
+          }
         }
       }
     }
