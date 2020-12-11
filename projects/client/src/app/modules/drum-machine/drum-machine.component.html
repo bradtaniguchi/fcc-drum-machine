@@ -25,7 +25,9 @@
               <button mat-flat-button
                       color="primary"
                       class="drum-pad"
-                      (click)="onButtonClick(button)">
+                      (click)="onButtonClick(button, audio)">
+                <audio [src]="'/assets/default-music/' + button.music"
+                       #audio></audio>
                 {{button.display}}
               </button>
             </div>
