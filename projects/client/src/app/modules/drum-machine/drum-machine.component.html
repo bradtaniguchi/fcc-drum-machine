@@ -25,6 +25,7 @@
               <button mat-flat-button
                       color="primary"
                       class="drum-pad"
+                      [id]="button.music"
                       (click)="onButtonClick(button, audio)">
                 <audio [src]="'/assets/default-music/' + button.music"
                        #audio></audio>

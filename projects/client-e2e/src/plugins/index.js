@@ -19,4 +19,11 @@ module.exports = (on, config) => {
 
   // Preprocess Typescript
   on('file:preprocessor', preprocessTypescript(config));
+  // in plugins file
+  on('task', {
+    log: (message) => {
+      console.log(message);
+      return null;
+    },
+  });
 };

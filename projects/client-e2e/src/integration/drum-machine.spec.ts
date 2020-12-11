@@ -33,7 +33,12 @@ describe('DrumMachine', () => {
         expect(element.text().trim()).to.eql(
           drumMachinePageObject.getDefaultElementNames()[index]
         );
-        // TODO: check for unique ID
+        const seenIds: string[] = [];
+        const id = element.prop('id');
+        // in test
+        cy.task('log', `id: ${id} text: ${element.text()}`);
+        expect(seenIds.includes(id)).to.equal(false);
+        seenIds.push(id);
       });
     }
   );
