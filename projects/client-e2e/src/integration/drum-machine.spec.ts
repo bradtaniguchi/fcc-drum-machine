@@ -29,14 +29,13 @@ describe('DrumMachine', () => {
       'following keys on the keyboard: Q, W, E, A, S, D, Z, X, C. ' +
       'The drum pads MUST be in this order.',
     () => {
+      const seenIds: string[] = [];
       drumMachinePageObject.drumPadElements().each((element, index) => {
         expect(element.text().trim()).to.eql(
           drumMachinePageObject.getDefaultElementNames()[index]
         );
-        const seenIds: string[] = [];
         const id = element.prop('id');
-        // in test
-        cy.task('log', `id: ${id} text: ${element.text()}`);
+        // cy.task('log', `id: ${id} text: ${element.text()}`);
         expect(seenIds.includes(id)).to.equal(false);
         seenIds.push(id);
       });
@@ -47,7 +46,17 @@ describe('DrumMachine', () => {
       'audio element which has a src attribute pointing to an audio clip, ' +
       'a class name of clip, and an id corresponding to the inner text ' +
       'of its parent .drum-pad (e.g. id="Q", id="W", id="E" etc.).',
-    () => {}
+    () => {
+      drumMachinePageObject.drumPadElements().each((element, index) => {
+        const audioElement = element.find('audio[class="clip"]');
+        expect(!!audioElement).to.be.true;
+        const id = audioElement.prop('id');
+        cy.task('log', `id: ${id} text: ${element.text()}`);
+        expect(id).to.eql(
+          drumMachinePageObject.getDefaultElementNames()[index]
+        );
+      });
+    }
   );
   it(
     'User Story #5: When I click on a .drum-pad element, the audio ' +

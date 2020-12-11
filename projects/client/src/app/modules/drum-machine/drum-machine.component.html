@@ -28,6 +28,8 @@
                       [id]="button.music"
                       (click)="onButtonClick(button, audio)">
                 <audio [src]="'/assets/default-music/' + button.music"
+                       [id]="button.display"
+                       class="clip"
                        #audio></audio>
                 {{button.display}}
               </button>
