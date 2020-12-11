@@ -4,10 +4,18 @@
   <mat-card>
     <mat-card-content>
       <div id="drum-machine">
-        <div gdAlignColumns="center">
+        <div fxLayout="row"
+             fxLayoutAlign="start center">
           <span id="display"
                 class="mat-body-2"
-                style="min-height: 24px">
+                style="min-height: 24px"
+                fxFlex="80">
+            Letter
+          </span>
+          <span fxFlex="20">
+            <button mat-icon-button>
+              <mat-icon>more_vert</mat-icon>
+            </button>
           </span>
         </div>
         <div gdColumns="1fr 1fr 1fr"
