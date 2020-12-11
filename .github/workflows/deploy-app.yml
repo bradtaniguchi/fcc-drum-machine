@@ -39,7 +39,7 @@ jobs:
           path: ./dist/cypress/client/**
 
       - name: build
-        run: npm run build -c=production
+        run: npm run build -- -c=production
 
       - uses: actions/upload-artifact@v1
         with:
