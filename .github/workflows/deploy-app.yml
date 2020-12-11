@@ -1,19 +1,9 @@
-name: test on commit
-on:
-  push:
-    branches:
-      - '*'
-    tags-ignore:
-      - '*'
-  pull_request:
-    branches:
-      - master
-    tags-ignore:
-      - '*'
+name: Deploy App
+on: [push]
 
 jobs:
-  test-on-commit:
-    runs-on: ubuntu-18.04
+  test-and-build:
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v1
 
@@ -25,11 +15,12 @@ jobs:
       - name: Cache Node modules
         id: cache-node
         uses: actions/cache@v2
-        with: 
-          path: node_modules
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
-
 
       - name: install deps
         if: steps.cache-node.outputs.cache-hit != 'true'
@@ -49,3 +40,26 @@ jobs:
 
       - name: build
         run: npm run build -c=production
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name: client-build-files
+          path: ./dist/client
+
+  deploy:
+    runs-on: ubuntu-20.04
+    # taken from https://github.community/t/trigger-job-on-tag-push-only/18076
+    if: contains(github.ref, 'refs/tags/')
+    needs: test-and-build
+    steps:
+      - name: get build files
+        uses: actions/download-artifact@master
+        with:
+          name: client-build-files
+          path: ./dist/client
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          publish_dir: ./dist/client

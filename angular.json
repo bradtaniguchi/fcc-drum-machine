@@ -59,6 +59,7 @@
           },
           "configurations": {
             "production": {
+              "deployUrl": "fcc-drum-machine/",
               "fileReplacements": [
                 {
                   "replace": "projects/client/src/environments/environment.ts",
@@ -125,6 +126,10 @@
               "devServerTarget": "client:serve"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
