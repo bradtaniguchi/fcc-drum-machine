@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "clean": "rimraf -rf dist"
+    "clean": "rimraf -rf dist",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -36,9 +37,12 @@
     "@angular-eslint/template-parser": "0.8.0-beta.5",
     "@angular/cli": "~11.0.4",
     "@angular/compiler-cli": "~11.0.4",
+    "@nrwl/cypress": "^10.4.4",
+    "@nrwl/workspace": "^10.4.4",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
+    "cypress": "^6.1.0",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",

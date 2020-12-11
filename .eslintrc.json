@@ -12,7 +12,7 @@
  * critical because our .ts files require a different parser and different rules to our
  * .html (and our inline Component) templates.
  */
- {
+{
   "root": true,
   "overrides": [
     /**
@@ -21,11 +21,9 @@
      * -----------------------------------------------------
      */
     {
-      "files": ["*.ts"],
+      "files": ["*.ts", "*.js"],
       "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ],
+        "project": ["tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [
