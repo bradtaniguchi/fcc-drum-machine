@@ -1,4 +1,7 @@
+import { DrumMachine } from '../fixtures/drum-machine.po';
+
 describe('DrumMachine', () => {
+  const drumMachinePageObject = new DrumMachine();
   before(() => {
     cy.visit('/');
   });
@@ -9,7 +12,9 @@ describe('DrumMachine', () => {
   it(
     'User Story #1: I should be able to see an outer container with a ' +
       'corresponding id="drum-machine" that contains all other elements.',
-    () => {}
+    () => {
+      drumMachinePageObject.getContainer().should('be.visible');
+    }
   );
   it(
     'User Story #2: Within #drum-machine I can see an element ' +
