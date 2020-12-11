@@ -1,0 +1,22 @@
+<div gdAlignColumns="center"
+     gdAlignRows="center"
+     class="full-height">
+  <mat-card>
+    <mat-card-content>
+      <div id="drum-machine">
+        <div gdColumns="1fr 1fr 1fr"
+             gdGap="8px">
+          <ng-container *ngFor="let button of buttons">
+            <div>
+              <button mat-flat-button
+                      color="primary"
+                      (click)="onButtonClick(button)">
+                {{button.display}}
+              </button>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
