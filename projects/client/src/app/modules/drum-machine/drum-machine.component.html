@@ -4,12 +4,19 @@
   <mat-card>
     <mat-card-content>
       <div id="drum-machine">
+        <div gdAlignColumns="center">
+          <span id="display"
+                class="mat-body-2"
+                style="min-height: 24px">
+          </span>
+        </div>
         <div gdColumns="1fr 1fr 1fr"
              gdGap="8px">
           <ng-container *ngFor="let button of buttons">
             <div>
               <button mat-flat-button
                       color="primary"
+                      class="drum-pad"
                       (click)="onButtonClick(button)">
                 {{button.display}}
               </button>

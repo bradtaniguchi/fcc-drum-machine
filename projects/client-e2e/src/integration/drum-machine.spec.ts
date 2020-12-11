@@ -19,7 +19,7 @@ describe('DrumMachine', () => {
   it(
     'User Story #2: Within #drum-machine I can see an element ' +
       'with a corresponding id="display".',
-    () => {}
+    () => drumMachinePageObject.getDisplay().should('be.visible')
   );
   it(
     'User Story #3: Within #drum-machine I can see 9 clickable ' +
@@ -28,7 +28,14 @@ describe('DrumMachine', () => {
       'to trigger, and an inner text that corresponds to one of the ' +
       'following keys on the keyboard: Q, W, E, A, S, D, Z, X, C. ' +
       'The drum pads MUST be in this order.',
-    () => {}
+    () => {
+      drumMachinePageObject.drumPadElements().each((element, index) => {
+        expect(element.text().trim()).to.eql(
+          drumMachinePageObject.getDefaultElementNames()[index]
+        );
+        // TODO: check for unique ID
+      });
+    }
   );
   it(
     'User Story #4: Within each .drum-pad, there should be an HTML5 ' +
