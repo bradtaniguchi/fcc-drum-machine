@@ -22,8 +22,18 @@ jobs:
         with:
           node-version: 14
 
+      - name: Cache Node modules
+        id: cache-node
+        uses: actions/cache@v2
+        with: 
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+
       - name: install deps
-        run: npm ci
+        if: steps.cache-node.outputs.cache-hit != 'true'
+        run: npm install --silent
 
       - name: lint
         run: npm run lint
